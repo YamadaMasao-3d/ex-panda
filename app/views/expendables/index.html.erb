@@ -6,9 +6,10 @@
     <h2 class='service-title'>
       トップページ
     </h2>
-    <p class='service-explain'>
-      FURIMAはだれでもかんたんに出品・購入できる
-    </p>
+    <%#= button_to "消耗品登録", {controller: "expendables", action: "new"}, {method: :get, class: 'service-explain'} %>
+    <%= link_to(new_expendable_path, class: 'purchase-btn') do %>
+      <span class='purchase-btn-text'>出品する</span>
+    <% end %>
     <p class='service-explain'>
       フリマアプリです
     </p>
