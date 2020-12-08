@@ -15,7 +15,10 @@
       <span class='purchase-btn-text'>すぐ必要なものを登録する</span>
     <% end %>
 
-
+    <%= link_to(favorites_path, class: 'purchase-btn') do %>
+      <span class='purchase-btn-text'>お気に入り登録する</span>
+    <% end %>
+    
     <p class='service-explain'>
       フリマアプリです
     </p>

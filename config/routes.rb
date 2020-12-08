@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: "expendables#index"
   resources :expendables
   resources :wants
+  resources :favorites
 end

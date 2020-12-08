@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :expendables
   has_many :wants
+  has_many :favorites
 
   with_options presence: true do
     validates :nickname
