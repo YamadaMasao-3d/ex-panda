@@ -9,7 +9,7 @@ class ExpendablesController < ApplicationController
     else
       redirect_to new_user_session_path
     end
-  end  
+  end
 
   def create
     @expendable = Expendable.new(expendable_params)

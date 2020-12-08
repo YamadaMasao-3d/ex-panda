@@ -8,8 +8,14 @@
     </h2>
     <%#= button_to "消耗品登録", {controller: "expendables", action: "new"}, {method: :get, class: 'service-explain'} %>
     <%= link_to(new_expendable_path, class: 'purchase-btn') do %>
-      <span class='purchase-btn-text'>出品する</span>
+      <span class='purchase-btn-text'>消耗品を登録する</span>
     <% end %>
+
+    <%= link_to(wants_path, class: 'purchase-btn') do %>
+      <span class='purchase-btn-text'>すぐ必要なものを登録する</span>
+    <% end %>
+
+
     <p class='service-explain'>
       フリマアプリです
     </p>
