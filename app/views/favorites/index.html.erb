@@ -4,16 +4,16 @@
 
   </header>
   <div class="items-sell-main">
-    <h2 class="items-sell-title">すぐ必要な物の情報を入力してね</h2>
-    <%= form_with model:@want, local: true do |f| %>
+    <h2 class="items-sell-title">お気に入り品の情報を入力してね</h2>
+    <%= form_with model:@favorite, local: true do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
 
     <%# 出品画像 %>
     <div class="img-upload">
       <div class="weight-bold-text">
-        すぐ必要な物の画像
-        <span class="indispensable">任意</span>
+        お気に入り品の画像
+        <span class="indispensable">必須</span>
       </div>
       <div class="click-upload">
         <p>
@@ -26,18 +26,23 @@
     <%# 商品名と商品説明 %>
     <div class="new-items">
       <div class="weight-bold-text">
-        すぐ必要な物の名前
+        お気に入り品の名前
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
       <div class="items-explain">
         <div class="weight-bold-text">
-          すぐ必要な物の説明
+          お気に入り品の説明
           <span class="indispensable">必須</span>
         </div>
         <%= f.text_area :content, class:"items-text", id:"item-info", placeholder:"商品の説明 (任意 100文字まで)" ,rows:"7" ,maxlength:"100" %>
       </div>
     </div>
+      <div class="weight-bold-text">
+        消費期間
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :period, class:"items-text", id:"item-name", placeholder:"20200202（必須 40文字まで)", maxlength:"40" %>
     <%# /商品名と商品説明 %>
 
     <%# 下部ボタン %>
