@@ -1,6 +1,9 @@
 class ExpendablesController < ApplicationController
 
   def index
+    @want = Want.includes(:user).order('created_at DESC')
+    @favorite = Favorite.includes(:user).order('created_at DESC')
+    @expendable = Expendable.includes(:user).order('created_at DESC')
   end
 
   def new
