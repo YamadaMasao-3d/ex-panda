@@ -1,4 +1,5 @@
 class WantsController < ApplicationController
+  before_action :item_find, only: [:show, :update, :edit, :destroy]
 
   def index
     if user_signed_in?
@@ -18,16 +19,33 @@ class WantsController < ApplicationController
   end
 
   def show
-    @want = Want.find(params[:id])
+    
   end
 
   def edit
+    
+  end
+
+  def update
+    if @want.update(item_data_params)
+      redirect_to root_path(@want.id)
+    else
+      render :edit
+    end
   end
 
   private
 
   def want_params
     params.require(:want).permit(:content, :image, :name).merge(user_id: current_user.id)
+  end
+
+  def item_find
+    @want = Want.find(params[:id])
+  end
+
+  def item_data_params
+    params.require(:want).permit(:image, :name, :content)
   end
 
 end
