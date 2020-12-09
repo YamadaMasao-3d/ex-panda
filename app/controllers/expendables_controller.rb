@@ -1,4 +1,5 @@
 class ExpendablesController < ApplicationController
+  before_action :item_find, only: [:show, :update, :edit, :destroy]
 
   def index
     @want = Want.includes(:user).order('created_at DESC')
@@ -30,11 +31,27 @@ class ExpendablesController < ApplicationController
   def edit
   end
 
+  def update
+    if @expendable.update(item_data_params)
+      redirect_to root_path(@expendable.user_id)
+    else
+      render :edit
+    end
+  end
+
 
   private
 
   def expendable_params
     params.require(:expendable).permit(:content, :image, :period, :name).merge(user_id: current_user.id)
+  end
+
+  def item_find
+    @expendable = Expendable.find(params[:id])
+  end
+
+  def item_data_params
+    params.require(:expendable).permit(:image, :name, :period, :content)
   end
 
 end
