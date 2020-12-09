@@ -7,16 +7,16 @@
       トップページ
     </h2>
     <%#= button_to "消耗品登録", {controller: "expendables", action: "new"}, {method: :get, class: 'service-explain'} %>
-    <%= link_to(new_expendable_path, class: 'purchase-btn') do %>
-      <span class='purchase-btn-text'>消耗品を登録する</span>
-    <% end %>
-
     <%= link_to(wants_path, class: 'purchase-btn') do %>
       <span class='purchase-btn-text'>すぐ必要なものを登録する</span>
     <% end %>
 
     <%= link_to(favorites_path, class: 'purchase-btn') do %>
       <span class='purchase-btn-text'>お気に入り登録する</span>
+    <% end %>
+
+        <%= link_to(new_expendable_path, class: 'purchase-btn') do %>
+      <span class='purchase-btn-text'>消耗品を登録する</span>
     <% end %>
     
     <div class='store-btn'>
@@ -36,7 +36,7 @@
       <% @want.each do |want| %>
 
       <li class='list'>
-        <%= link_to "#", method: :get do %>
+        <%= link_to want_path(want.id), method: :get do %>
         <div class='item-img-content'>
           <% if want.image.present? %>
             <%= image_tag want.image, class: "item-img" %>
@@ -101,7 +101,7 @@
       <% @favorite.each do |favorite| %>
 
       <li class='list'>
-        <%= link_to "#", method: :get do %>
+        <%= link_to favorite_path(favorite.id), method: :get do %>
         <div class='item-img-content'>
             <%= image_tag favorite.image, class: "item-img" %>
           <%# 商品が売れていればsold outを表示しましょう %>
@@ -165,7 +165,7 @@
       <% @expendable.each do |expendable| %>
 
       <li class='list'>
-        <%= link_to "#", method: :get do %>
+        <%= link_to expendable_path(expendable.id), method: :get do %>
         <div class='item-img-content'>
           <% if expendable.image.present? %>
             <%= image_tag expendable.image, class: "item-img" %>

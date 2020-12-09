@@ -1,0 +1,60 @@
+<%= render "shared/header" %>
+
+<%# 商品の概要 %>
+<div class="item-show">
+  <div class="item-box">
+    <h2 class="name">
+      <%= @expendable.name %>
+    </h2>
+    <div class='item-img-content'>
+      <% if @expendable.image.present? %>
+        <%= image_tag @expendable.image, class:"item-box-img" %>
+      <%# 商品が売れている場合は、sold outを表示しましょう %>
+      <%#<div class='sold-out'>
+        <span>Sold Out!!</span>
+      </div>
+      <%# //商品が売れている場合は、sold outを表示しましょう %>
+      <% else%>
+        <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img" %>
+      <% end %>
+    </div>
+
+
+    <% if user_signed_in? && current_user.id == @expendable.user_id %>
+    <%= link_to '登録品の編集', edit_expendable_path(@expendable.id), method: :get, class: "item-red-btn" %>
+    <p class='or-text'>or</p>
+    <%= link_to '削除', expendable_path(@expendable.id), method: :delete, class:'item-destroy' %>
+    <% end %>
+    <%# 商品が売れていない場合はこちらを表示しましょう %>
+    <%# //商品が売れていない場合はこちらを表示しましょう %>
+
+
+
+
+    <div class="item-explain-box">
+      <span><%= @expendable.name %></span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">情報</th>
+          <td class="detail-value"><%= @expendable.content %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">消費期間</th>
+          <td class="detail-value"><%= @expendable.period %>まで</td>
+        </tr>
+      </tbody>
+    </table>
+    <% if user_signed_in? && current_user.id == @expendable.user_id %>
+    <%= link_to '登録品の更新', "#", method: :get, class: "item-red-btn" %>
+    <% end %>
+    <div class="option">
+          <%= link_to '戻る', root_path(@expendable.user_id)%>
+  </div>
+  <%# /商品の概要 %>
+
+  <%#<a href="#" class='another-item'><%= @item.category.name %><%#をもっと見る</a>%>
+</div>
+
+<%#= render "shared/footer" %>

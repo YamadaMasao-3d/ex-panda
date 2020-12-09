@@ -23,6 +23,13 @@ class ExpendablesController < ApplicationController
     end
   end
 
+  def show
+    @expendable = Expendable.find(params[:id])
+  end
+
+  def edit
+  end
+
 
   private
 
