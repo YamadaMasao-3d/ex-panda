@@ -39,6 +39,14 @@ class ExpendablesController < ApplicationController
     end
   end
 
+  def destroy
+    if @expendable.destroy
+      redirect_to root_path
+    else
+      redirect_to expendable_path(@expendable.id)
+    end
+  end
+
 
   private
 
