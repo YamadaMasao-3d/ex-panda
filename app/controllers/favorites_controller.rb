@@ -33,6 +33,14 @@ class FavoritesController < ApplicationController
     end
   end
 
+  def destroy
+    if @favorite.destroy
+      redirect_to root_path
+    else
+      redirect_to favorite_path(@favorite.id)
+    end
+  end
+
   private
 
   def favorite_params

@@ -34,6 +34,14 @@ class WantsController < ApplicationController
     end
   end
 
+  def destroy
+    if @want.destroy
+      redirect_to root_path
+    else
+      redirect_to want_path(@want.id)
+    end
+  end
+
   private
 
   def want_params
