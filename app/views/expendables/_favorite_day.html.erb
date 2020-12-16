@@ -4,10 +4,10 @@
         <ul class="more_list">
           <li>
             <p>
-            <%#= "消費期限: #{favorite.registration_day.to_date + favorite.period}" %>
+            <%= "消費期限: #{favorite.registration_day.to_date + favorite.period}" %>
             </p>
             <p>
-            <%#= "残り日数: #{favorite.registration_day.day + favorite.period - Date.today.day}日" %>
+            <%= "残り日数: #{favorite.registration_day.day + favorite.period - Date.today.day}日" %>
             </p>
             <P>
 
