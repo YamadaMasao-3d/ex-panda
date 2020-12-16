@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_12_08_035715) do
     t.string "name", null: false
     t.text "content", null: false
     t.integer "period", null: false
+    t.datetime "registration_day", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

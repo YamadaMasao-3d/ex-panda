@@ -9,10 +9,6 @@
             <p>
             <%= "残り日数: #{favorite.registration_day.day + favorite.period - Date.today.day}日" %>
             </p>
-            <P>
-
-            <%#= link_to '登録品の更新', favorite_path(favorite.id), method: :patch, class: "index_item-red-btn" %>
-            </p>
             <%#= link_to '詳細', tweet_path(tweet.id), method: :get %>
           </li>
         </ul>
