@@ -1,5 +1,5 @@
 class ExpendablesController < ApplicationController
-  before_action :item_find, only: [:show, :update, :edit, :destroy]
+  before_action :item_find, only: [:show, :update, :edit, :destroy, :day_update]
 
   def index
     @want = Want.includes(:user).order('created_at DESC')
@@ -33,12 +33,21 @@ class ExpendablesController < ApplicationController
   end
 
   def update
-    if @expendable.update(item_data_params)
+    if @expendable.update(expendable_params)
       redirect_to root_path(@expendable.user_id)
     else
       render :edit
     end
   end
+
+  def day_update
+    if @expendable.update(registration_day: Date.today)
+      redirect_to root_path(@expendable.user_id)
+    else
+      render :index
+    end
+  end
+     
 
   def destroy
     if @expendable.destroy
@@ -52,15 +61,11 @@ class ExpendablesController < ApplicationController
   private
 
   def expendable_params
-    params.require(:expendable).permit(:content, :image, :period, :name).merge(user_id: current_user.id)
+    params.require(:expendable).permit(:content, :image, :period, :name).merge(user_id: current_user.id, registration_day: Date.today)
   end
 
   def item_find
     @expendable = Expendable.find(params[:id])
-  end
-
-  def item_data_params
-    params.require(:expendable).permit(:image, :name, :period, :content)
   end
 
 end

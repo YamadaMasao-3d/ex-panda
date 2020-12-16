@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :wants
   resources :favorites 
   put "favorites/:id/day_update", to: "favorites#day_update"
+  put "expendables/:id/day_update", to: "expendables#day_update"
 end
