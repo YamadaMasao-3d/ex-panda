@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_12_08_035715) do
   create_table "expendables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "content", null: false
-    t.datetime "period", null: false
+    t.integer "period", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -46,7 +46,8 @@ ActiveRecord::Schema.define(version: 2020_12_08_035715) do
   create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "content", null: false
-    t.datetime "period", null: false
+    t.integer "period", null: false
+    t.datetime "day", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

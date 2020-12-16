@@ -42,7 +42,7 @@
         </tr>
         <tr>
           <th class="detail-item">消費期間</th>
-          <td class="detail-value"><%= @favorite.period %>まで</td>
+          <td class="detail-value"><%= @favorite.updated_at.to_date + @favorite.period%>まで</td>
         </tr>
       </tbody>
     </table>

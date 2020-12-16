@@ -42,9 +42,6 @@
         </tr>
       </tbody>
     </table>
-    <% if user_signed_in? && current_user.id == @want.user_id %>
-    <%= link_to '登録品の更新', "#", method: :get, class: "item-red-btn" %>
-    <% end %>
     <div class="option">
           <%= link_to '戻る', root_path(@want.user_id)%>
   </div>

@@ -38,8 +38,13 @@
       <li class='list'>
         <%= link_to want_path(want.id), method: :get do %>
         <div class='item-img-content'>
+          <div class='item-info'>
+            <h3 class='item-name'>
+              <%= want.name %>
+            </h3>
+          </div>
           <% if want.image.present? %>
-            <%= image_tag want.image, class: "item-img" %>
+          <%= image_tag want.image, class: "item-img" %>
           <%# 商品が売れていればsold outを表示しましょう %>
            <%# @purchase_history.each do |purchase_history| %>
           <%# if item.id == purchase_history.item_id  %>
@@ -52,12 +57,6 @@
           <%#<% end %>
           <%# end %>
           <%# //商品が売れていればsold outを表示しましょう %>
-
-        </div>
-        <div class='item-info'>
-          <h3 class='item-name'>
-            <%= want.name %>
-          </h3>
           <%#<div class='item-price'>
             <span><%= item.product_price %><%#円<br><%= item.shipping_charge.name %><%#</span>
             <%#<div class='star-btn'>
@@ -96,6 +95,11 @@
       <li class='list'>
         <%= link_to favorite_path(favorite.id), method: :get do %>
         <div class='item-img-content'>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= favorite.name %>
+          </h3>
+          </div>
             <%= image_tag favorite.image, class: "item-img" %>
           <%# 商品が売れていればsold outを表示しましょう %>
            <%# @purchase_history.each do |purchase_history| %>
@@ -107,12 +111,8 @@
           <%#<% end %>
           <%# end %>
           <%# //商品が売れていればsold outを表示しましょう %>
-
+          <%= render partial: "favorite_day", locals: { favorite: favorite } %>
         </div>
-        <div class='item-info'>
-          <h3 class='item-name'>
-            <%= favorite.name %>
-          </h3>
           <%#<div class='item-price'>
             <span><%= item.product_price %><%#円<br><%= item.shipping_charge.name %><%#</span>
             <%#<div class='star-btn'>
@@ -120,8 +120,13 @@
               <%#<span class='star-count'>0</span>
             </div>
           </div>%>
-        </div>
+
         <% end %>
+        <div class="sell-btn-contents">
+        <%#= form_with model:favorite, url:favorite_path(favorite.id), method: :patch, local: true do |f| %>
+        <%= link_to "更新する", "/favorites/#{favorite.id}/day_update", method: :put, class:"index_item-red-btn" %>
+        <%#end %>
+        </div>
       </li>
        <% end %>
 
@@ -153,8 +158,14 @@
       <li class='list'>
         <%= link_to expendable_path(expendable.id), method: :get do %>
         <div class='item-img-content'>
+          <div class='item-info'>
+            <h3 class='item-name'>
+              <%= expendable.name %>
+            </h3>
+          </div>
           <% if expendable.image.present? %>
             <%= image_tag expendable.image, class: "item-img" %>
+              <%= render partial: "expendable_day", locals: { expendable: expendable } %>
           <%# 商品が売れていればsold outを表示しましょう %>
            <%# @purchase_history.each do |purchase_history| %>
           <%# if item.id == purchase_history.item_id  %>
@@ -168,10 +179,6 @@
           <%# //商品が売れていればsold outを表示しましょう %>
             <% end %>
         </div>
-        <div class='item-info'>
-          <h3 class='item-name'>
-            <%= expendable.name %>
-          </h3>
           <%#<div class='item-price'>
             <span><%= item.product_price %><%#円<br><%= item.shipping_charge.name %><%#</span>
             <%#<div class='star-btn'>
@@ -179,7 +186,6 @@
               <%#<span class='star-count'>0</span>
             </div>
           </div>%>
-        </div>
         <% end %>
       </li>
        <% end %>

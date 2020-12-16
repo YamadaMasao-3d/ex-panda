@@ -1,0 +1,19 @@
+    <div class="content_post" style="background-image: url(<%= expendable.image %>);">
+      <div class="more">
+        <span><%#= image_tag '' %></span>
+        <ul class="more_list">
+          <li>
+            <p>
+            <%= "消費期限: #{expendable.updated_at.to_date + expendable.period}" %>
+            </p>
+            <p>
+            <%= "残り日数: #{expendable.updated_at.day + expendable.period - Date.today.day}日" %>
+            </p>
+            <P>
+            <%= link_to '登録品の更新', "#", method: :get, class: "index_item-red-btn" %>
+            </p>
+            <%#= link_to '詳細', tweet_path(tweet.id), method: :get %>
+          </li>
+        </ul>
+      </div>
+    </div>

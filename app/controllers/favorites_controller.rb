@@ -1,5 +1,5 @@
 class FavoritesController < ApplicationController
-  before_action :item_find, only: [:show, :update, :edit, :destroy]
+  before_action :item_find, only: [:show, :update, :edit, :destroy, :day_update]
 
   def index
     if user_signed_in?
@@ -19,19 +19,27 @@ class FavoritesController < ApplicationController
   end
 
   def show
-    @favorite = Favorite.find(params[:id])
   end
 
   def edit
   end
 
   def update
-    if @favorite.update(item_data_params)
+    if @favorite.update(favorite_params)
       redirect_to root_path(@favorite.user_id)
     else
       render :edit
     end
   end
+
+  def day_update
+    if @favorite.update(day: Date.today)
+      redirect_to root_path(@favorite.user_id)
+    else
+      render :index
+    end
+  end
+    
 
   def destroy
     if @favorite.destroy
@@ -44,15 +52,11 @@ class FavoritesController < ApplicationController
   private
 
   def favorite_params
-    params.require(:favorite).permit(:content, :image, :period, :name).merge(user_id: current_user.id)
+    params.require(:favorite).permit(:content, :image, :period, :name).merge(user_id: current_user.id, day: Date.today)
   end
 
   def item_find
     @favorite = Favorite.find(params[:id])
-  end
-
-  def item_data_params
-    params.require(:favorite).permit(:image, :name, :period, :content)
   end
 
 end

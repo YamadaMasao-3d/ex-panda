@@ -1,0 +1,20 @@
+    <div class="content_post" style="background-image: url(<%= favorite.image %>);">
+      <div class="more">
+        <span><%#= image_tag '' %></span>
+        <ul class="more_list">
+          <li>
+            <p>
+            <%= "消費期限: #{favorite.day.to_date + favorite.period}" %>
+            </p>
+            <p>
+            <%= "残り日数: #{favorite.day.day + favorite.period - Date.today.day}日" %>
+            </p>
+            <P>
+
+            <%#= link_to '登録品の更新', favorite_path(favorite.id), method: :patch, class: "index_item-red-btn" %>
+            </p>
+            <%#= link_to '詳細', tweet_path(tweet.id), method: :get %>
+          </li>
+        </ul>
+      </div>
+    </div>
