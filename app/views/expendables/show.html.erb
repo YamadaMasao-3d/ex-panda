@@ -42,7 +42,7 @@
         </tr>
         <tr>
           <th class="detail-item">消費期間</th>
-          <td class="detail-value"><%= @expendable.period %>まで</td>
+          <td class="detail-value"><%= @expendable.updated_at.to_date + @expendable.period %>まで</td>
         </tr>
       </tbody>
     </table>
@@ -50,7 +50,7 @@
     <%= link_to '登録品の更新', "#", method: :get, class: "item-red-btn" %>
     <% end %>
     <div class="option">
-          <%= link_to '戻る', root_path(@expendable.user_id)%>
+          <%= link_to '戻る',  root_path(@expendable.user_id)%>
   </div>
   <%# /商品の概要 %>
 

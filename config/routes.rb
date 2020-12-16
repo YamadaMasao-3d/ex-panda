@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root to: "expendables#index"
   resources :expendables
   resources :wants
-  resources :favorites
+  resources :favorites 
+  put "favorites/:id/day_update", to: "favorites#day_update"
 end

@@ -6,6 +6,6 @@ class Favorite < ApplicationRecord
     validates :image
     validates :name, length: { maximum: 40 }
     validates :content, length: { maximum: 100 }
-    validates :period, length: { maximum: 40 }
+    validates :period, length: { maximum: 40 },  numericality: { only_integer: true, with: [0-9]}
   end
 end

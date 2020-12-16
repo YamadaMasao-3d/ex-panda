@@ -5,6 +5,6 @@ class Expendable < ApplicationRecord
   with_options presence: true do
     validates :name, length: { maximum: 40 }
     validates :content, length: { maximum: 100 }
-    validates :period, length: { maximum: 40 }
+    validates :period, length: { maximum: 40 },  numericality: { only_integer: true, with: [0-9]}
   end
 end

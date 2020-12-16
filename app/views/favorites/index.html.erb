@@ -42,12 +42,12 @@
         消費期間
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :period, class:"items-text", id:"item-name", placeholder:"20200202（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_area :period, class:"items-text", id:"item-name", placeholder:"20（必須 半角数字 40文字まで)", maxlength:"40" %>
     <%# /商品名と商品説明 %>
 
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "登録する" ,class:"sell-btn" %>
+      <%= f.submit "登録する",class:"sell-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>

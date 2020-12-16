@@ -3,7 +3,8 @@ class CreateFavorites < ActiveRecord::Migration[6.0]
     create_table :favorites do |t|
       t.string :name,        null: false
       t.text :content,       null: false
-      t.datetime :period,    null: false
+      t.integer :period,     null: false
+      t.datetime :day,       null: false
       t.references :user,    null: false,  foreign_key: true
 
       t.timestamps
