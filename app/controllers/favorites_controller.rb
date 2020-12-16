@@ -33,7 +33,7 @@ class FavoritesController < ApplicationController
   end
 
   def day_update
-    if @favorite.update(day: Date.today)
+    if @favorite.update(registration_day: Date.today)
       redirect_to root_path(@favorite.user_id)
     else
       render :index
@@ -52,7 +52,7 @@ class FavoritesController < ApplicationController
   private
 
   def favorite_params
-    params.require(:favorite).permit(:content, :image, :period, :name).merge(user_id: current_user.id, day: Date.today)
+    params.require(:favorite).permit(:content, :image, :period, :name).merge(user_id: current_user.id, registration_day: Date.today)
   end
 
   def item_find
