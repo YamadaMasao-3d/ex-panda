@@ -3,7 +3,7 @@ class ExpendablesController < ApplicationController
 
   def index
     @want = Want.includes(:user).order('created_at DESC')
-    @favorite = Favorite.includes(:user).order('created_at DESC')
+    @favorite = favorite_expiration.sort_by! { |a| a[:expiration]}
     @expendable = Expendable.includes(:user).order('created_at DESC')
   end
 
@@ -66,6 +66,16 @@ class ExpendablesController < ApplicationController
 
   def item_find
     @expendable = Expendable.find(params[:id])
+  end
+
+  def favorite_expiration
+    favorites = Favorite.includes(:user)
+    @favorite = []
+    favorites.each do |favorite|
+      favorite = {"id" => favorite.id, "name" => favorite.name, "content" => favorite.content, "period" => favorite.period, "image" => favorite.image, "registration_day" => favorite.registration_day, "user_id" => favorite.user_id, "expiration" => (favorite.registration_day.day + favorite.period - Date.today.day)}
+      @favorite << favorite
+    end
+    @favorite
   end
 
 end
