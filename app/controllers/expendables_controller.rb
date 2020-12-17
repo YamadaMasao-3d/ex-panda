@@ -3,7 +3,7 @@ class ExpendablesController < ApplicationController
 
   def index
     @want = Want.includes(:user).order('created_at DESC')
-    @favorite = favorite_expiration.sort_by! { |a| a[:expiration]}
+    @favorite = favorite_expiration.sort_by!{ |a| a["expiration"] }
     @expendable = Expendable.includes(:user).order('created_at DESC')
   end
 

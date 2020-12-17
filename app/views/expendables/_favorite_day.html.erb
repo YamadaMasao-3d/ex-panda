@@ -7,7 +7,7 @@
             <%= "消費期限: #{favorite["registration_day"].to_date + favorite["period"]}" %>
             </p>
             <p>
-            <%= "残り日数: #{favorite["registration_day"].day + favorite["period"] - Date.today.day}日" %>
+            <%= "残り日数: #{favorite["expiration"]}日" %>
             </p>
             <%#= link_to '詳細', tweet_path(tweet.id), method: :get %>
           </li>
