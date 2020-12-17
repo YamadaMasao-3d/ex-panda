@@ -155,15 +155,15 @@
       <% @expendable.each do |expendable| %>
 
       <li class='list'>
-        <%= link_to expendable_path(expendable.id), method: :get do %>
+        <%= link_to expendable_path(expendable["id"]), method: :get do %>
         <div class='item-img-content'>
           <div class='item-info'>
             <h3 class='item-name'>
-              <%= expendable.name %>
+              <%= expendable["name"] %>
             </h3>
           </div>
-          <% if expendable.image.present? %>
-            <%= image_tag expendable.image, class: "item-img" %>
+          <% if expendable["image"].present? %>
+            <%= image_tag expendable["image"], class: "item-img" %>
               <%= render partial: "expendable_day", locals: { expendable: expendable } %>
           <%# 商品が売れていればsold outを表示しましょう %>
            <%# @purchase_history.each do |purchase_history| %>
@@ -187,7 +187,7 @@
           </div>%>
         <% end %>
         <div class="sell-btn-contents">
-          <%= link_to "更新する", "/expendables/#{expendable.id}/day_update", method: :put, class:"index_item-red-btn" %>
+          <%= link_to "更新する", "/expendables/#{expendable["id"]}/day_update", method: :put, class:"index_item-red-btn" %>
         </div>
       </li>
        <% end %>
