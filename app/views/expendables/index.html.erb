@@ -91,16 +91,17 @@
     <ul class='item-lists'>
     <% if @favorite.present? %>
       <% @favorite.each do |favorite| %>
+      <%# binding.pry %>
 
       <li class='list'>
-        <%= link_to favorite_path(favorite.id), method: :get do %>
+        <%= link_to favorite_path(favorite["id"]), method: :get do %>
         <div class='item-img-content'>
         <div class='item-info'>
           <h3 class='item-name'>
-            <%= favorite.name %>
+            <%= favorite["name"] %>
           </h3>
           </div>
-            <%= image_tag favorite.image, class: "item-img" %>
+            <%= image_tag favorite["image"], class: "item-img" %>
           <%# 商品が売れていればsold outを表示しましょう %>
            <%# @purchase_history.each do |purchase_history| %>
           <%# if item.id == purchase_history.item_id  %>
@@ -123,7 +124,7 @@
 
         <% end %>
         <div class="sell-btn-contents">
-        <%= link_to "更新する", "/favorites/#{favorite.id}/day_update", method: :put, class:"index_item-red-btn" %>
+        <%= link_to "更新する", "/favorites/#{favorite["id"]}/day_update", method: :put, class:"index_item-red-btn" %>
         </div>
       </li>
        <% end %>
