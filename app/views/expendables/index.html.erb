@@ -42,7 +42,7 @@
           <% if want.image.present? %>
           <%= image_tag want.image, class: "item-img" %>
           <% else%>
-          <%= image_tag "img_29702.jpeg", class: "item-img" %>
+          <%#= image_tag "img_29702.jpeg", class: "item-img" %>
           <% end %>
         </div>
         <% end %>
@@ -127,7 +127,7 @@
             <%= image_tag expendable["image"], class: "item-img" %>
               <%= render partial: "expendable_day", locals: { expendable: expendable } %>
             <% else%>
-            <%= image_tag "img_29702.jpeg", class: "item-img" %>
+            <%#= image_tag "img_29702.jpeg", class: "item-img" %>
             <% end %>
         </div>
         <% end %>
