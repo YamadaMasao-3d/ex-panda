@@ -10,7 +10,7 @@
   <%# /画面上部の帯部分  %>
 
   <div class="purchase-box">
-      <%= link_to(wants_path, class: 'purchase-btn') do %>
+    <%= link_to(wants_path, class: 'purchase-btn') do %>
       <span class='purchase-btn-text'>すぐ必要なものを登録する</span>
     <% end %>
 
@@ -18,7 +18,7 @@
       <span class='purchase-btn-text'>お気に入り登録する</span>
     <% end %>
 
-        <%= link_to(new_expendable_path, class: 'purchase-btn') do %>
+    <%= link_to(new_expendable_path, class: 'purchase-btn') do %>
       <span class='purchase-btn-text'>消耗品を登録する</span>
     <% end %>
   </div>
@@ -42,7 +42,7 @@
           <% if want.image.present? %>
           <%= image_tag want.image, class: "item-img" %>
           <% else%>
-            <%= image_tag "IMG_29702.jpeg", class: "item-img" %>
+          <%= image_tag "img_29702.jpeg", class: "item-img" %>
           <% end %>
         </div>
         <% end %>
@@ -127,7 +127,7 @@
             <%= image_tag expendable["image"], class: "item-img" %>
               <%= render partial: "expendable_day", locals: { expendable: expendable } %>
             <% else%>
-            <%= image_tag "IMG_29702.jpeg", class: "item-img" %>
+            <%= image_tag "img_29702.jpeg", class: "item-img" %>
             <% end %>
         </div>
         <% end %>
