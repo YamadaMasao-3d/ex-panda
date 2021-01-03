@@ -5,7 +5,6 @@ class ExpendablesController < ApplicationController
     @want = Want.includes(:user).order('created_at DESC')
     @favorite = favorite_expiration.sort_by!{ |a| a["expiration"] }
     @expendable = expendable_expiration.sort_by!{ |a| a["expiration"] }
-    #@expendable = Expendable.includes(:user).order('created_at DESC')
   end
 
   def new

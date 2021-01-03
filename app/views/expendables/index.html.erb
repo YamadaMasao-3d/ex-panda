@@ -1,13 +1,16 @@
 <%= render "shared/header" %>
 <div class='main'>
 
-  <%# 画面上部の「人生を変えるフリマアプリ」帯部分 %>
+  <%# 画面上部の帯部分 %>
   <div class='title-contents'>
     <h2 class='service-title'>
-      トップページ
+      ex-panda
     </h2>
-    <%#= button_to "消耗品登録", {controller: "expendables", action: "new"}, {method: :get, class: 'service-explain'} %>
-    <%= link_to(wants_path, class: 'purchase-btn') do %>
+  </div>
+  <%# /画面上部の帯部分  %>
+
+  <div class="purchase-box">
+      <%= link_to(wants_path, class: 'purchase-btn') do %>
       <span class='purchase-btn-text'>すぐ必要なものを登録する</span>
     <% end %>
 
@@ -18,16 +21,9 @@
         <%= link_to(new_expendable_path, class: 'purchase-btn') do %>
       <span class='purchase-btn-text'>消耗品を登録する</span>
     <% end %>
-    
-    <div class='store-btn'>
-      <%#= link_to image_tag("https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2011-09-21&kind=iossoftware&bubble=ios_apps", class:"apple-btn"), "#" %>
-      <%#= link_to image_tag("dl-android.png", class:"google-btn"), "#" %>
-    </div>
   </div>
-  <%# /画面上部の「人生を変えるフリマアプリ」帯部分  %>
 
   
-  <%# 商品一覧 %>
   <div class='item-contents'>
     <h2 class='title'>すぐ必要な物一覧</h2>
     <%= link_to 'すぐ必要な物', "#", class: "subtitle" %>
@@ -45,25 +41,9 @@
           </div>
           <% if want.image.present? %>
           <%= image_tag want.image, class: "item-img" %>
-          <%# 商品が売れていればsold outを表示しましょう %>
-           <%# @purchase_history.each do |purchase_history| %>
-          <%# if item.id == purchase_history.item_id  %>
           <% else%>
             <%= image_tag "IMG_2970 2.jpeg", class: "item-img" %>
-          <%#<div class='sold-out'>
-            <span>Sold Out!!</span>
-          </div>%>
           <% end %>
-          <%#<% end %>
-          <%# end %>
-          <%# //商品が売れていればsold outを表示しましょう %>
-          <%#<div class='item-price'>
-            <span><%= item.product_price %><%#円<br><%= item.shipping_charge.name %><%#</span>
-            <%#<div class='star-btn'>
-              <%= image_tag "star.png", class:"star-icon" %>
-              <%#<span class='star-count'>0</span>
-            </div>
-          </div>%>
         </div>
         <% end %>
       </li>
@@ -101,26 +81,8 @@
           </h3>
           </div>
             <%= image_tag favorite["image"], class: "item-img" %>
-          <%# 商品が売れていればsold outを表示しましょう %>
-           <%# @purchase_history.each do |purchase_history| %>
-          <%# if item.id == purchase_history.item_id  %>
-
-          <%#<div class='sold-out'>
-            <span>Sold Out!!</span>
-          </div>
-          <%#<% end %>
-          <%# end %>
-          <%# //商品が売れていればsold outを表示しましょう %>
           <%= render partial: "favorite_day", locals: { favorite: favorite } %>
         </div>
-          <%#<div class='item-price'>
-            <span><%= item.product_price %><%#円<br><%= item.shipping_charge.name %><%#</span>
-            <%#<div class='star-btn'>
-              <%= image_tag "star.png", class:"star-icon" %>
-              <%#<span class='star-count'>0</span>
-            </div>
-          </div>%>
-
         <% end %>
         <div class="sell-btn-contents">
         <%= link_to "更新する", "/favorites/#{favorite["id"]}/day_update", method: :put, class:"index_item-red-btn" %>
@@ -164,26 +126,10 @@
           <% if expendable["image"].present? %>
             <%= image_tag expendable["image"], class: "item-img" %>
               <%= render partial: "expendable_day", locals: { expendable: expendable } %>
-          <%# 商品が売れていればsold outを表示しましょう %>
-           <%# @purchase_history.each do |purchase_history| %>
-          <%# if item.id == purchase_history.item_id  %>
             <% else%>
             <%= image_tag "IMG_2970 2.jpeg", class: "item-img" %>
-          <%#<div class='sold-out'>
-            <span>Sold Out!!</span>
-          </div>
-          <%#<% end %>
-          <%# end %>
-          <%# //商品が売れていればsold outを表示しましょう %>
             <% end %>
         </div>
-          <%#<div class='item-price'>
-            <span><%= item.product_price %><%#円<br><%= item.shipping_charge.name %><%#</span>
-            <%#<div class='star-btn'>
-              <%= image_tag "star.png", class:"star-icon" %>
-              <%#<span class='star-count'>0</span>
-            </div>
-          </div>%>
         <% end %>
         <div class="sell-btn-contents">
           <%= link_to "更新する", "/expendables/#{expendable["id"]}/day_update", method: :put, class:"index_item-red-btn" %>
@@ -206,9 +152,4 @@
       <% end %>
     </ul>
   </div>
-  <%# /商品一覧 %>
 </div>
-<%#= link_to(new_item_path, class: 'purchase-btn') do %>
-  <%#= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
-<%# end %>
-<%#= render "shared/footer" %>
