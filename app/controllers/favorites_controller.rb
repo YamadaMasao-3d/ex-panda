@@ -39,7 +39,6 @@ class FavoritesController < ApplicationController
       render :index
     end
   end
-    
 
   def destroy
     if @favorite.destroy
@@ -52,11 +51,11 @@ class FavoritesController < ApplicationController
   private
 
   def favorite_params
-    params.require(:favorite).permit(:content, :image, :period, :name).merge(user_id: current_user.id, registration_day: Date.today)
+    params.require(:favorite).permit(:content, :image, :period, :name).merge(user_id: current_user.id,
+                                                                             registration_day: Date.today)
   end
 
   def item_find
     @favorite = Favorite.find(params[:id])
   end
-
 end

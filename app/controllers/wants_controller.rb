@@ -19,11 +19,9 @@ class WantsController < ApplicationController
   end
 
   def show
-    
   end
 
   def edit
-    
   end
 
   def update
@@ -55,5 +53,4 @@ class WantsController < ApplicationController
   def item_data_params
     params.require(:want).permit(:image, :name, :content)
   end
-
 end
