@@ -10,17 +10,17 @@ RSpec.describe Want, type: :model do
         expect(@want).to be_valid
       end
       it 'contentが空でも保存できること' do
-        @want.content = ""
+        @want.content = ''
         @want.valid?
         expect(@want).to be_valid
       end
     end
 
     context 'すぐ必要な物の登録が出来ないとき' do
-      it "nameが空だと登録できない" do
-        @want.name = ""
+      it 'nameが空だと登録できない' do
+        @want.name = ''
         @want.valid?
-        expect(@want.errors.full_messages).to include "Nameを入力してください"
+        expect(@want.errors.full_messages).to include 'Nameを入力してください'
       end
     end
   end

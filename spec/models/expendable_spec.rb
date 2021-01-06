@@ -12,20 +12,20 @@ RSpec.describe Expendable, type: :model do
     end
 
     context '消耗品登録が出来ないとき' do
-      it "nameが空だと登録できない" do
-        @expendable.name = ""
+      it 'nameが空だと登録できない' do
+        @expendable.name = ''
         @expendable.valid?
-        expect(@expendable.errors.full_messages).to include "Nameを入力してください"
+        expect(@expendable.errors.full_messages).to include 'Nameを入力してください'
       end
-      it "contentが空だと登録できない" do
-        @expendable.content = ""
+      it 'contentが空だと登録できない' do
+        @expendable.content = ''
         @expendable.valid?
-        expect(@expendable.errors.full_messages).to include "Contentを入力してください"
+        expect(@expendable.errors.full_messages).to include 'Contentを入力してください'
       end
-      it "periodが空だと登録できない" do
-        @expendable.period = ""
+      it 'periodが空だと登録できない' do
+        @expendable.period = ''
         @expendable.valid?
-        expect(@expendable.errors.full_messages).to include "Periodを入力してください"
+        expect(@expendable.errors.full_messages).to include 'Periodを入力してください'
       end
     end
   end

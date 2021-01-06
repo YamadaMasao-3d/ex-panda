@@ -12,20 +12,20 @@ RSpec.describe Favorite, type: :model do
     end
 
     context 'お気に入り品登録が出来ないとき' do
-      it "nameが空だと登録できない" do
-        @favorite.name = ""
+      it 'nameが空だと登録できない' do
+        @favorite.name = ''
         @favorite.valid?
-        expect(@favorite.errors.full_messages).to include "Nameを入力してください"
+        expect(@favorite.errors.full_messages).to include 'Nameを入力してください'
       end
-      it "contentが空だと登録できない" do
-        @favorite.content = ""
+      it 'contentが空だと登録できない' do
+        @favorite.content = ''
         @favorite.valid?
-        expect(@favorite.errors.full_messages).to include "Contentを入力してください"
+        expect(@favorite.errors.full_messages).to include 'Contentを入力してください'
       end
-      it "periodが空だと登録できない" do
-        @favorite.period = ""
+      it 'periodが空だと登録できない' do
+        @favorite.period = ''
         @favorite.valid?
-        expect(@favorite.errors.full_messages).to include "Periodを入力してください"
+        expect(@favorite.errors.full_messages).to include 'Periodを入力してください'
       end
     end
   end
