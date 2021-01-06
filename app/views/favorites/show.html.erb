@@ -1,6 +1,5 @@
 <%= render "shared/header" %>
 
-<%# 商品の概要 %>
 <div class="item-show">
   <div class="item-box">
     <h2 class="name">
@@ -9,13 +8,8 @@
     <div class='item-img-content'>
       <% if @favorite.image.present? %>
         <%= image_tag @favorite.image, class:"item-box-img" %>
-      <%# 商品が売れている場合は、sold outを表示しましょう %>
-      <%#<div class='sold-out'>
-        <span>Sold Out!!</span>
-      </div>
-      <%# //商品が売れている場合は、sold outを表示しましょう %>
       <% else%>
-        <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img" %>
+        <%= image_tag "https://1.bp.blogspot.com/-D2I7Z7-HLGU/Xlyf7OYUi8I/AAAAAAABXq4/jZ0035aDGiE5dP3WiYhlSqhhMgGy8p7zACNcBGAsYHQ/s1600/no_image_square.jpg", class: "item-img" %>
       <% end %>
     </div>
 
@@ -25,11 +19,6 @@
     <p class='or-text'>or</p>
     <%= link_to '削除', favorite_path(@favorite.id), method: :delete, class:'item-destroy' %>
     <% end %>
-    <%# 商品が売れていない場合はこちらを表示しましょう %>
-    <%# //商品が売れていない場合はこちらを表示しましょう %>
-
-
-
 
     <div class="item-explain-box">
       <span><%= @favorite.name %></span>
@@ -52,9 +41,5 @@
     <div class="option">
           <%= link_to '戻る', root_path(@favorite.user_id)%>
   </div>
-  <%# /商品の概要 %>
 
-  <%#<a href="#" class='another-item'><%= @item.category.name %><%#をもっと見る</a>%>
 </div>
-
-<%#= render "shared/footer" %>
