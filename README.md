@@ -11,7 +11,23 @@
 
 - ユーザー登録 / ログイン / 編集機能
 
-- RSpecによるテスト機能
+- RSpec/Rubocopによるテスト機能
+
+- 登録商品表示画面
+
+https://user-images.githubusercontent.com/73803047/103896190-ee1d9f00-5134-11eb-8ffa-103c1285fae4.mp4
+
+- すぐ欲しい物登録画面
+
+<img width="1438" alt="すぐ必要な物登録画面" src="https://user-images.githubusercontent.com/73803047/103896853-f2968780-5135-11eb-84d5-0e7843994f4b.png">
+
+- お気に入り品登録機能
+
+<img width="1438" alt="お気に入り品登録画面" src="https://user-images.githubusercontent.com/73803047/103897216-8bc59e00-5136-11eb-9e68-bb11b9c2ed42.png">
+
+- 消耗品登録画面
+
+<img width="1438" alt="消耗品登録画面" src="https://user-images.githubusercontent.com/73803047/103897377-cd564900-5136-11eb-8ca1-ceb4adb17acd.png">
 
 ## URL
 
@@ -42,6 +58,60 @@
 
 - これから初めて一人暮らしを始める方が重複した物をうっかり購入してしまうことや、パートナーや家族と日用品の使用、購入を共有する方が、お互いの拘って使用している物を誤って購入したり、お願いした物を買い忘れたりすることを解決するためのアプリです。
 
+## こだわった/実装に苦労した機能
+
+- ### 消費までの予定日が少ない順で商品が表示されるようにしました！
+- ### 一度消耗期間を入力すれば、あとは更新ボタン一つで消耗予定日が再セットするようにしました！
+- ### トップページに自分の登録した商品のみ表示するようにしました！
+
+## 使用言語技術
+
+### バックエンド
+
+- Ruby 2.6.5
+
+- Ruby on Rails 6.0.0
+
+### 使用Gem
+
+- devise
+
+- pry-rails
+
+- mini_magick
+
+- image_processing
+
+- date
+
+- aws-sdk-s3
+
+- rspec-rails
+
+- factory_bot_rails
+
+- faker
+
+### フロント
+
+- HTML
+
+- CSS
+
+- SCSS
+
+### データベース
+
+- MySQL
+
+### テスト
+
+- RSpec
+
+- FactoryBot
+
+- Faker
+
 ## 実装予定の機能
 
 - レスポンシブデザイン
@@ -49,9 +119,11 @@
 - 複数ユーザーで管理品を共有する機能
 - 各登録品一覧表示機能
 
-# テーブル設計
 
-## users テーブル
+
+## テーブル設計
+
+### users テーブル
 
 | Column             | Type        | Options                   |
 | ------------------ | ----------- | ------------------------- |
@@ -65,7 +137,7 @@
 - has_many :favorites
 - has_many :wants
 
-## expendables テーブル
+### expendables テーブル
 
 | Column  | Type        | Options                          |
 | ------- | ----------- | -------------------------------- |
@@ -78,7 +150,7 @@
 
 - belongs_to :user
 
-## favorites テーブル
+### favorites テーブル
 
 | Column  | Type        | Options                          |
 | ------- | ----------- | -------------------------------- |
@@ -91,7 +163,7 @@
 
 - belongs_to :user
 
-## wants テーブル
+### wants テーブル
 
 | Column  | Type        | Options                          |
 | ------- | ----------- | -------------------------------- |
