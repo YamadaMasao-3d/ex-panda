@@ -119,6 +119,9 @@
 - 複数ユーザーで管理品を共有する機能
 - 各登録品一覧表示機能
 
+## ER図
+
+<img width="825" alt="ER図" src="https://user-images.githubusercontent.com/73803047/103968689-a2580d80-51a7-11eb-825a-d3d2443d01af.png">
 
 
 ## テーブル設計
@@ -139,12 +142,13 @@
 
 ### expendables テーブル
 
-| Column  | Type        | Options                          |
-| ------- | ----------- | -------------------------------- |
-| name    | string      | null: false                      |
-| content | text        | null: false                      |
-| period  | integer     | null; false                      |
-| user    | references  | null: false,foreign_key: true    |
+| Column           | Type        | Options                          |
+| ---------------- | ----------- | -------------------------------- |
+| name             | string      | null: false                      |
+| content          | text        | null: false                      |
+| period           | integer     | null; false                      |
+| registration_day | datetime    | null; false                      |
+| user             | references  | null: false,foreign_key: true    |
 
 ### Association
 
@@ -152,12 +156,13 @@
 
 ### favorites テーブル
 
-| Column  | Type        | Options                          |
-| ------- | ----------- | -------------------------------- |
-| name    | string      | null: false                      |
-| content | text        | null: false                      |
-| period  | integer     | null; false                      |
-| user    | references  | null: false,foreign_key: true    |
+| Column           | Type        | Options                          |
+| ---------------- | ----------- | -------------------------------- |
+| name             | string      | null: false                      |
+| content          | text        | null: false                      |
+| period           | integer     | null; false                      |
+| registration_day | datetime    | null; false                      |
+| user             | references  | null: false,foreign_key: true    |
 
 ### Association
 
